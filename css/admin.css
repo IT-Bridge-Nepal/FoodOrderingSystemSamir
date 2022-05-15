@@ -1,0 +1,109 @@
+*{
+    margin: 0 0;
+    padding: 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.menu {
+    border-bottom: 1px solid gray;
+}
+.wrapper{
+    width: 80%;
+    padding: 1%;
+    margin: 0 auto;
+
+}
+.text-center{
+    text-align: center;
+    color: grey;
+}
+
+.wrapper ul{
+    list-style-type:none;
+}
+.wraper .text-center{
+    text-align: center;
+}
+
+.wrapper ul li{
+    display: inline;
+    padding: 1%;
+    
+}
+
+.wrapper ul li a{
+    text-decoration: none;
+    font-weight: bold;
+    color: aqua;
+}
+
+.wrapper ul li a:hover{
+    color: aquamarine;
+
+}
+.footer{
+    background-color: aqua;
+}
+ 
+.maincontent{
+    background-color: aliceblue;
+}
+.col-4{
+    background-color: blanchedalmond;
+   width: 18%;
+   margin: 1%;
+   padding: 2%;
+   float: left;
+}
+.btn-primary{
+    padding: 1%;
+    background-color:coral;
+    color: bisque;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-primary :hover{
+    background-color: aqua;
+}
+.btn-secondary{
+    padding: 1%;
+    background-color:rgb(172, 127, 255);
+    color:whitesmoke;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-secondary :hover{
+    background-color: rgb(255, 0, 13);
+}
+.btn-danger{
+    padding: 1%;
+    margin: 1%;
+    background-color:rgb(255, 0, 13);
+    color: whitesmokes;
+    border: none;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-secondary :hover{
+    background-color: rgb(255, 0, 13);
+}
+.tbl{
+    width: 100%;
+}
+table tr th{
+    border-bottom: 1px solid gray;
+    padding: 1%;
+    text-align: left;
+}
+table tr td{
+    padding: 1%;
+}
+.tbl-30{
+    width: 30%;
+}
+.clearfix{
+    float: none;
+    clear: both;
+}
