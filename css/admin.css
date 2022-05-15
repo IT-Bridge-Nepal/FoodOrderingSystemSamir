@@ -107,3 +107,12 @@ table tr td{
     float: none;
     clear: both;
 }
+
+
+
+.success{
+    color: green;
+}
+.error{
+    color: black;
+}

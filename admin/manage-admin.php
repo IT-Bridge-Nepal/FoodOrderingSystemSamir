@@ -9,6 +9,10 @@
             echo $_SESSION['add'];//display the session message
             unset($_SESSION['add']);//removing the Session message
         }
+        if (isset($_SESSION['delete'])) {
+            echo $_SESSION['delete'];
+            unset ($_SESSION['delete']);
+        }
    
   
         ?>
@@ -33,6 +37,7 @@ $res = mysqli_query($conn, $sql);
 if ($res==TRUE) {
     //count rows to check whether we have data in database or not
     $count = mysqli_num_rows($res); //function to get all the rows
+    $sn=1;//create a variable and assin
 
     //check the num of rows
     if($count>0);
@@ -50,12 +55,12 @@ if ($res==TRUE) {
             //display the values in table
 ?>
                     <tr>
-                     <td>1.</td>
+                     <td><?php echo $sn++;?></td>
                      <td><?php echo $full_name;?></td>
                     <td><?php echo $user_name;?></td>
                    <td>
-                      <a href="#" class="btn-secondary"> update admin </a>
-                    <a href="#" class="btn-danger"> delete admin </a>
+                      <a href="<?php echo SITEURL ?>admin/update-admin.php?id=<?php echo $id;?>" class="btn-secondary"> update admin </a>
+                    <a href="<?php echo SITEURL ?>admin/delete-admin.php?id=<?php echo $id; ?>" class="btn-danger"> delete admin </a>
                 </td>
             </tr>
 <?php
