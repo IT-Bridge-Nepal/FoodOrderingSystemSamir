@@ -116,3 +116,10 @@ table tr td{
 .error{
     color: black;
 }
+/* css for login */
+.login{
+    width: 30%;
+    border: 1px solid gray;
+    margin: 10% auto;
+    padding: 2%;
+}
