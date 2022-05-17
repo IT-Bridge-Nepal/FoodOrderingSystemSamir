@@ -1,4 +1,5 @@
-<?php include('../config/constants.php') ; ?>
+ <?php include('../config/constants.php') ; 
+?> 
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,11 @@ if (isset($_SESSION['login'])) {
 	
 }
 
-       ?>
+ if (isset($_SESSION['no-login-message'])) {
+ 	echo $_SESSION['no-login-message'];
+ 	unset($_SESSION['no-login-message']);
+ }
+        ?>
 
         <br />
         <br />
@@ -43,35 +48,42 @@ if (isset($_SESSION['login'])) {
 </div>
 </body>
 </html>
-
-<?php    
+<?php
 //check whether the submit button is clicked or not
+
 if (isset($_POST['submit'])) {
 	//process for login
-	//get the data from login form
-	 $username=$_POST['username'];
-	 $password=$_POST['password'];
-
+	// get the data from login form
+	$username =$_POST['username'];
+	$password=md5($_POST['password']);
 	 // sql to check whether the username and password exist or not
-	 $sql ="SELECT * from tbl_admin WHERE user_name='$username' AND password='$password'";
+	$sql ="SELECT * from tbl_admin WHERE user_name='$username' AND password='$password'";
 
-	 //execute the query
-	 $res=mysqli_query($conn, $sql);
+ //execute the query
+	$res=mysqli_query($conn, $sql);
 
-	 //count rows to check whether the user exist or not
-	 $count =mysqli_num_rows($res);
+	//count rows to check whether the user exist or not
+$count =mysqli_num_rows($res);
 
-	 if ($count==1) 
-	 {
+	if ($count==1) 
+	{
 	 	//user available and login success
-	 	$_SESSION['login']="<div class='success'>login successfull</div>"; 
-	 	header('location:'.SITEURL.'admin/');
-	 }else{
-	 	//user not available
-	 	$_SESSION['login']="<div class='error'>username or password didnot matched</div>"; 
-	 	header('location:'.SITEURL.'admin/login.php');
-	 }
+	 		$_SESSION['login']="<div class='success'>login successfull</div>";
+	 		 $_SESSION['user']= $username; //to check the user logged in or not and logout will unset it
+		//redirect to home page/dashboard
+		header('location:'.SITEURL.'admin/');
+}
+else{
+	//user not available and login fail
+		$_SESSION['login']="<div class='error text-center'>Username or Password didnot matched</div>"; 
+
+
+//redirect to login.php
+			header('location:'.SITEURL.'admin/login.php');
 
 }
+
+}
+
 
 ?>

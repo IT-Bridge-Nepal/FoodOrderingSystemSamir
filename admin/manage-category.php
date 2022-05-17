@@ -4,53 +4,77 @@
     <div class="wrapper">
         <h1>Manage Category</h1>
         <br>
+                <?php
+if (isset($_SESSION['add'])) {
+    echo $_SESSION['add'];
+    unset ($_SESSION['add']);
+}
+
+        ?>
+        <br>
         <!-- button in add admin -->
-        <a href="#" class="btn-primary">Add Category</a></button>
+        <a href="<?php echo SITEURL;?>admin/add-category.php" class="btn-primary">Add Category</a></button>
         <br></br>
         <table class="tbl">
             <tr>
                 <th>S.N.</th>
-                <th>full name</th>
-                <th>User Name</th>
-                <th>Action</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Feature</th>
+                <th>Active</th>
+                <th>Actions</th>
 
             </tr>
+            <?php
+
+//query to get all categories from database
+            $sql ="SELECT * FROM tbl_category";
+
+            //execute query
+            $res =mysqli_query($conn,$sql);
+
+            //count rows
+            $count =mysqli_num_rows($res);
+
+            //check whether we have data in database or not
+            if (count>0)
+             {
+                // we have data in database
+                //get the data and display
+                while ($row=mysqli_fetch_assoc($res)) {
+                    $id =$row['image_name'];
+                    $image_name=$row['image_name'];
+                    $featured=$row['featured'];
+                    $active=$row['active'];
+                    ?>
+                }
+            }else{
+                //we do not have data in database
+                //we will dispaly the message inside table
+                ?>
+
+
+                <tr>
+                    <td colspan="6"><div class='error'>No catogery added</div></td>
+                </tr>
+
+            }
+
+
+
+            ?>
             <tr>
                 <td>1</td>
-                <td>samir karki</td>
-                <td>samir</td>
+                <td>samir </td>
+                <td>r</td>
+                <td></td>
+                <td></td>
                 <td>
                     <a href="#" class="btn-secondary"> update admin </a>
                     <a href="#" class="btn-danger"> delete admin </a>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>sam karki</td>
-                <td>samir</td>
-                <td>
-                    <a href="#" class="btn-secondary"> update admin </a>
-                    <a href="#" class="btn-danger"> delete admin </a>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>binaya sharma</td>
-                <td>binaya</td>
-                <td>
-                    <a href="#" class="btn-secondary"> update admin </a>
-                    <a href="#" class="btn-danger"> delete admin </a>
-                </td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>sagar dhoju</td>
-                <td>sagar</td>
-                <td>
-                    <a href="#" class="btn-secondary"> update admin </a>
-                    <a href="#" class="btn-danger"> delete admin </a>
-                </td>
-            </tr>
+           
         </table>
     </div>
 

@@ -114,7 +114,7 @@ table tr td{
     color: green;
 }
 .error{
-    color: black;
+    color: red;
 }
 /* css for login */
 .login{
