@@ -37,6 +37,11 @@ include("../config/constants.php");?>
 				//to upload image we need image name and source path and destination
 				$image_name = $_FILES['image']['name'];
 
+				//upload the image only if image is selected
+				if ($image_name!="") {
+				 	// code...
+				 
+
 				
 				//Auto rename image 
 				
@@ -64,6 +69,7 @@ include("../config/constants.php");?>
 					header('location:'.SITEURL.'admin/add-category.php');
 					//stop the process
 					die();
+				}
 				}
 			}else{
 
