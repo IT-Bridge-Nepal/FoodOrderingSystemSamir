@@ -23,13 +23,15 @@
             <h2 class="text-center">Food Menu</h2>
         <?php
             //display food that are active
-           $sql ="SELECT * FROM tbl_food WHERE active='Yes' ";
+           $sql ="SELECT * FROM tbl_food WHERE active='Yes' AND featured='Yes'";
 
             //execute the query
             $res=mysqli_query($conn,$sql);
 
             //count rows
              $count=mysqli_num_rows($res);
+             // var_dump($count);
+             // die();
             //check whether food are available or not
             if ($count>0) {
                 // foods available.
@@ -52,7 +54,7 @@ if ($image_name=="") {
 
     //image available
     ?>
- <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name;?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+ <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name;?>" class="img-responsive img-curve">
 
     <?php
 
@@ -72,7 +74,7 @@ if ($image_name=="") {
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order Now</a>
+                    <a href="<?php echo SITEURL; ?>order.php?food_id=<?php  echo $id;?>" class="btn btn-primary">Order Now</a>
                 </div>
             </div>
 
